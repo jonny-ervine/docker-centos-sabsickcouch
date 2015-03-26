@@ -32,6 +32,8 @@ ADD supervisord.conf /etc/supervisord.conf
 ADD sabnzbd.ini /etc/supervisord.d/sabnzbd.ini
 ADD sickrage.ini /etc/supervisord.d/sickrage.ini
 ADD couchpotato.ini /etc/supervisord.d/couhcpotato.ini
+ADD start.sh /usr/sbin/start.sh
+RUN chmod 755 /usr/sbin/start.sh
 
 VOLUME /config
 VOLUME /data
@@ -39,4 +41,4 @@ VOLUME /downloads
 
 # Start SABnzbd
 EXPOSE 5050 8080 8081 9090 9002
-ENTRYPOINT ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
+ENTRYPOINT ["/usr/sbin/start.sh"]
