@@ -14,6 +14,8 @@ The SABnzbd software is downloaded as a tarball from sourceforge and the SickRag
 The container can be run as follows:
 
     docker pull jervine/docker-centos-sabsickcouch
-    docker run -d -n <optional name of container> -h <optional host name of container> -e TZ="<optional timezone> -v /<config directory on host>:/config -v <data directory on host>:/data -v /<download directory on host>:/downloads -p 5050:5050 -p 8080:8080 -p 8081:8081 -p 9002:9002 jervine/docker-centos-sickrage
+    docker run -d -n <optional name of container> -h <optional host name of container> -e TZ="<optional timezone> --cap-add net_raw --cap-add net_admin -v /<config directory on host>:/config -v <data directory on host>:/data -v /<download directory on host>:/downloads -p 5050:5050 -p 8080:8080 -p 8081:8081 -p 9002:9002 jervine/docker-centos-sickrage
 
 THe TZ variable allows the user to set the correct timezone for the container and should take the form "Europe/London". If no timezone is specified then UTC is used by default. The timezone is set up when the container is run. Subsequent stops and starts will not change the timezone.
+
+The --cap-add options are needed to allow SABnzbd to reach the Internet (DNS etc.)
