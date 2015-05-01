@@ -40,5 +40,5 @@ VOLUME /data
 VOLUME /downloads
 
 # Start SABnzbd
-EXPOSE 5050 8080 8081 9090 9002
+EXPOSE 5050 8080 8081 8090 9002
 ENTRYPOINT ["/usr/sbin/start.sh"]
