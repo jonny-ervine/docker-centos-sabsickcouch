@@ -14,7 +14,7 @@ RUN rm -f /python-yenc-0.4.0-4.el7.centos.x86_64.rpm
 RUN yum clean all
 
 # Download and extract SABnzbd from sourceforge
-RUN curl http://jaist.dl.sourceforge.net/project/sabnzbdplus/sabnzbdplus/0.7.20/SABnzbd-0.7.20-src.tar.gz > /SABnzbd.tar.gz
+RUN curl -L  http://sourceforge.net/projects/sabnzbdplus/files/sabnzbdplus/0.7.20/SABnzbd-0.7.20-src.tar.gz/download > /SABnzbd.tar.gz
 RUN tar zxvf /SABnzbd.tar.gz
 RUN rm /SABnzbd.tar.gz
 
